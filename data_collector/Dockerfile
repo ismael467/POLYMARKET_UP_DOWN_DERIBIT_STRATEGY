@@ -16,9 +16,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY btc_pricer/ btc_pricer/
 COPY scripts/ scripts/
 COPY data_collector/ data_collector/
-COPY cli_terminal.py cli.py config.yaml ./
+COPY telegram_alerts.py ./
 
 # Create results directory
 RUN mkdir -p data_collector/results
 
-CMD ["python", "-m", "data_collector.collector"]
+CMD ["sh", "-c", "python -m data_collector.collector & python telegram_alerts.py"]
