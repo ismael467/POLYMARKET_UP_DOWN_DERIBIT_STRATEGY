@@ -13,6 +13,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY btc_pricer/ btc_pricer/
 COPY scripts/ scripts/
 COPY data_collector/ data_collector/
+COPY cli_terminal.py ./
+COPY cli.py ./
+COPY config.yaml ./
 COPY data_collector/telegram_alerts.py ./
 
 RUN mkdir -p data_collector/results
